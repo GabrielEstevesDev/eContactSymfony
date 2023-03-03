@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>accueil </title>
+</head>
+
+<body onunload="window.location.href='quitter.php'; ">
+
+	<h2> Bienvenue {{ nom }}
+	</h2>
+	<nav>
+		{% include 'menu.tpl' %}
+	</nav> <!-- fin du menu nav -->
+	{% include 'contact/list_c.html.twig' %}
+
+</body>
+
+</html>
