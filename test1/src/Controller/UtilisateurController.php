@@ -10,13 +10,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class UtilisateurController extends AbstractController
 {
    
-    #[Route('/utilisateur', name: 'app_utilisateur')]
-    public function index(): Response
-    {
-        return $this->render('utilisateur/index.html.twig', [
-            'controller_name' => 'Gabriel',
-        ]);
-    }
     #[Route('/ident', name: 'app_ident')]
     public function ident(){
         $nom=  isset($_POST['nom'])?($_POST['nom']):'';
@@ -24,7 +17,7 @@ class UtilisateurController extends AbstractController
         $msg='';
 
         if  (count($_POST)==0)
-            return $this->render('utilisateur/ident.tpl');
+            return $this->render('utilisateur/ident.html.twig');
         else {
            
             require("../src/Entity/UtilisateurBD.php");
@@ -32,7 +25,7 @@ class UtilisateurController extends AbstractController
                 $_SESSION['profil']= array();
                 
                 $msg ="erreur de saisie";
-                return $this->render('utilisateur/ident.tpl');
+                return $this->render('utilisateur/ident.html.twig');
             }
             else { 
                 $response = new RedirectResponse('/accueil');
@@ -59,3 +52,4 @@ class UtilisateurController extends AbstractController
         }
 
 }
+?>

@@ -13,6 +13,7 @@ class ContactController extends AbstractController
         $idnom =$_SESSION['profil']['id_nom'];
         require("./modele/contactBD.php");
         $resultat = readContact($idnom);
-        return $this->render('./vue/contact/list_c.tpl');
+        return $this->render('./vue/contact/list_c.html.twig');
     }
 }
+?>
