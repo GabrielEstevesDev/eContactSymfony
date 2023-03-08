@@ -1,4 +1,14 @@
-<style>
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>accueil </title>
+</head>
+
+
+	<h2> Bienvenue {{ nom }}
+	</h2><style>
 	table.GeneratedTable {
 		width: 100%;
 		background-color: #ffffff;
@@ -48,13 +58,14 @@
 		?> -->
 			{% for value in liste %}
 			<tr>
-				<td>{{ value.nom }}</td>
-				<td>{{ value.prenom }}</td>
-				<td>{{ value.email }}</td>
+				<td>{{ value.0.nom }}</td>
+				<td>{{ value.0.prenom }}</td>
+				<td>{{ value.0.email }}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
 	</table>
 
+</body>
 
-</section> <!-- fin #contacts  -->
+</html>
