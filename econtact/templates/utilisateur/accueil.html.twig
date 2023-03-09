@@ -7,64 +7,13 @@
 </head>
 
 
-	<h2> Bienvenue {{ nom }}
-	</h2><style>
-	table.GeneratedTable {
-		width: 100%;
-		background-color: #ffffff;
-		border-collapse: collapse;
-		border-width: 2px;
-		border-color: #ffcc00;
-		border-style: solid;
-		color: #000000;
-	}
+<h2> Bienvenue {{ nom }}
+</h2>
+<nav>
+	{% include 'menu.html.twig' %}
+</nav>
 
-	table.GeneratedTable td,
-	table.GeneratedTable th {
-		border-width: 2px;
-		border-color: #ffcc00;
-		border-style: solid;
-		padding: 3px;
-	}
-
-	table.GeneratedTable thead {
-		background-color: #ffcc00;
-	}
-</style>
-
-<!-- HTML Code: Place this code in the document's body (between the 'body' tags) where the table should appear -->
-
-<!-- Codes by Quackit.com -->
-
-
-<section id="contacs">
-	<table class="GeneratedTable">
-		<thead>
-			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
-				<th>Email</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- <?php
-		foreach($L as $value){
-			echo("<tr>
-				<td>$value[nom]</td>
-				<td>$value[prenom]</td>
-				<td>$value[email]</td>
-			  </tr>");
-		}
-		?> -->
-			{% for value in liste %}
-			<tr>
-				<td>{{ value.0.nom }}</td>
-				<td>{{ value.0.prenom }}</td>
-				<td>{{ value.0.email }}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+{% include '/contact/list_c.html.twig' %}
 
 </body>
 
