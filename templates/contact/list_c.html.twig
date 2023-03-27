@@ -1,0 +1,53 @@
+<style>
+	table.GeneratedTable {
+		width: 100%;
+		background-color: #ffffff;
+		border-collapse: collapse;
+		border-width: 2px;
+		border-color: #ffcc00;
+		border-style: solid;
+		color: #000000;
+	}
+
+	table.GeneratedTable td,
+	table.GeneratedTable th {
+		border-width: 2px;
+		border-color: #ffcc00;
+		border-style: solid;
+		padding: 3px;
+	}
+
+	table.GeneratedTable thead {
+		background-color: #ffcc00;
+	}
+</style>
+
+<!-- HTML Code: Place this code in the document's body (between the 'body' tags) where the table should appear -->
+
+<!-- Codes by Quackit.com -->
+
+
+<section id="contacs">
+	<table class="GeneratedTable">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			{% for value in app.session.get('liste') %}
+			<tr>
+				<td>{{ value.0.nom }}</td>
+				<td>{{ value.0.prenom }}</td>
+				<td>{{ value.0.email }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</section>
+
+
+<!-- fin #contacts  -->

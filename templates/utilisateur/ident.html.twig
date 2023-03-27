@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!{% endblock %}
+
+{% block body %}
+
+<h1>Connexion sur le site</h1>
+{{ form_start(form) }}
+{{ form_label(form.Nom) }}
+{{ form_widget(form.Nom) }}
+{{ form_label(form.Num) }}
+{{ form_widget(form.Num) }}
+{{ form_widget(form.Envoyer) }}
+{{ form_end(form) }}
+{% if msg is defined %}
+    <p>{{msg}}</p>
+{% endif %}
+{% endblock %}

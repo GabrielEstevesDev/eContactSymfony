@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+<h1>Bienvenu {{app.session.get('nom')}} </h1>
+{{ include('menu.html.twig') }}
+{{include ('contact/list_c.html.twig')}}
+{% endblock %}
