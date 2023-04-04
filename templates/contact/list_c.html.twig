@@ -1,5 +1,6 @@
 <style>
 	table.GeneratedTable {
+		margin: 50px auto;
 		width: 100%;
 		background-color: #ffffff;
 		border-collapse: collapse;
@@ -26,8 +27,10 @@
 
 <!-- Codes by Quackit.com -->
 
-
-<section id="contacs">
+{% if liste is empty %}
+   <h3>Vous n'avez pas d'amis {{app.session.get('pseudo')}}, c'est dommage.</p>
+{% else %}
+   <section id="contacs">
 	<table class="GeneratedTable">
 		<thead>
 			<tr>
@@ -48,6 +51,8 @@
 		</tbody>
 	</table>
 </section>
+
+{% endif %}
 
 
 <!-- fin #contacts  -->

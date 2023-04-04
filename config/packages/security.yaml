@@ -17,14 +17,8 @@ security:
             custom_authenticator: App\Security\UtilisateurAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
-                # target: app_any_route
-            # provider: in_database
-            # form_login:
-            #     username_parameter: form[Nom]
-            #     password_parameter: form[Num]
-            #     login_path: app_ident
-            #     check_path: app_ident
+                target: sConnexion
+           
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

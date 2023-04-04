@@ -8,14 +8,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
-#[UniqueEntity(fields:['nom','id_nom'], message:'nom ou id_nom déjà utilisé.')]
+#[UniqueEntity(fields:['nom'], message:'nom déjà utilisé.')]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-    
     #[ORM\Column]
     private ?int $id_nom = null;
 
@@ -36,11 +33,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Email()]
     private ?string $email = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
+   
     public function getIdNom(): ?int
     {
         return $this->id_nom;

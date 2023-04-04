@@ -18,62 +18,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class UtilisateurController extends AbstractController
 {
       
-    // #[Route('/utilisateur/ident', name: 'app_ident')]
-    // public function ident(EntityManagerInterface $entityManager, Request $request){
-    //     $session = $request->getSession();
-    //     // if ($session->has('nom')) {
-    //     //     return new RedirectResponse($this->generateUrl('app_accueil'));
-    //     // }
-    //     $utilisateur = new Utilisateur();
-    //     $tab= array();
-    //     $form = $this->createFormBuilder($utilisateur)
-    //             ->add('Nom', TextType::class)
-    //             ->add("Num", TextType::class)
-    //             ->add("Envoyer", SubmitType::class)
-    //             ->getForm();
-    //     $form->handleRequest($request);
-
-    //     if($form->isSubmitted() && $form->isValid()){
-    //         $repository = $entityManager->getRepository(Utilisateur::class);
-    //         $utilisateur = $repository->findOneBy([
-    //             'nom' => $form->get('Nom')->getData(),
-    //             'num' => $form->get('Num')->getData(),
-    //         ]);
-    //         if($utilisateur){
-    //             $query=$entityManager->getRepository(Contact::class)->findBy(['id_nom'=>$utilisateur->getIdNom()]);
-    //             $session->set('nom', $utilisateur->getNom());
-    //             foreach($query as $value){
-    //                 $contact=$entityManager->getRepository(Utilisateur::class)->findBy(['id_nom'=>$value->getIdContact()]);
-    //                 array_push($tab,$contact);
-    //             }
-    //             $session->set('liste', $tab);
-    //             // $contact = new Contact();
-    //             // $liste = $contact->getAllContacts($utilisateur->getIdNom());
-               
-    //             return new RedirectResponse($this->generateUrl('app_accueil'));
-            
-    //         }
-    //         else{
-    //             $msg = "Utilisateur inconnu !";
-    //             return $this->render('utilisateur/ident.html.twig',[
-    //                 'form' => $form->createView(),
-    //                 'msg' => $msg
-    //             ]);	
-    //         }
-    //     }
-    //     return $this->render('utilisateur/ident.html.twig',[
-    //         'form' => $form->createView()
-    //     ]);	
-        
-    // }
     #[Route('/accueil', name: 'uAccueil')]
     function accueil(EntityManagerInterface $entityManager, Request $request){
         $session = $request->getSession();
         
         if (is_null($session->get("pseudo"))) {
-                return new RedirectResponse($this->generateUrl('app_login'));
+                return new RedirectResponse($this->generateUrl('sConnexion'));
          }
-         var_dump($session->get("pseudo"));
+       
         $tab=array();
         $utilisateur=$entityManager->getRepository(Utilisateur::class)->findOneBy(['nom'=>$session->get("pseudo")]);
         $idNom = $utilisateur->getIdNom();
