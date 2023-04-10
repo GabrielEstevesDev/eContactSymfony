@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
             $utilisateur->setNum($hash);
             $manager->persist($utilisateur);
             $manager->flush();
-            return new RedirectResponse($this->generateUrl('app_ident'));
+            return new RedirectResponse($this->generateUrl('sConnexion'));
         }
 
         return $this->render('security/registration.html.twig',[
@@ -42,7 +42,7 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
+        //     return $this->redirectToRoute('uAccueil');
         // }
 
         // get the login error if there is one

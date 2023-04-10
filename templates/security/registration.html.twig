@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-
+{% block title %}Inscrivez-vous !{% endblock %}
 
 {% block body %}
 
     <h1>Inscription sur le site</h1>
     {{form_start(form)}}
-    {{form_row(form.id_nom,{'label': 'Id Nom','attr':{'placeholder':'Entrez votre id nom'}})}}
-    {{form_row(form.nom,{'label': 'Nom','attr':{'placeholder':'Entrez votre nom'}})}}
+    {{form_row(form.nom,{'label': 'Psuedo','attr':{'placeholder':'Entrez votre Pseudo'}})}}
     {{form_row(form.prenom,{'label': 'Prenom','attr':{'placeholder':'Entrez votre prenom'}})}}
     {{form_row(form.email,{'label': 'Email','attr':{'placeholder':'Entrez votre email'}})}}
     {{form_row(form.num,{'label': 'Mot de Passe','attr':{'placeholder':'Entrez votre mot de passe'}})}}
